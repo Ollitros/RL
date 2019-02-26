@@ -56,8 +56,8 @@ class PreprocessAtari(ObservationWrapper):
         return img
 
 
+# spawn game instance for tests
 
-#spawn game instance for tests
 env = gym.make("BreakoutDeterministic-v0") #create raw env
 env = PreprocessAtari(env)
 

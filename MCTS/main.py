@@ -11,6 +11,7 @@ env = WithSnapshots(gym.make("CartPole-v0"))
 env.reset()
 n_actions = env.action_space.n
 
+
 class Node:
     """ a tree node for MCTS """
 
@@ -201,7 +202,7 @@ def plan_mcts(root,n_iters=10):
 
 root_observation = env.reset()
 root_snapshot = env.get_snapshot()
-root = Root(root_snapshot,root_observation)
+root = Root(root_snapshot, root_observation)
 
 #plan from root:
 plan_mcts(root, n_iters=1000)

@@ -5,7 +5,7 @@ from IPython.display import clear_output
 import gym
 from model_free_method.qlearning import QLearningAgent
 from model_free_method.expected_value_sarsa_epsilon_annealing import EVSarsaAgent
-from pandas import ewma, Series
+from pandas import  Series
 
 
 """
@@ -18,9 +18,9 @@ from pandas import ewma, Series
 agent = QLearningAgent(alpha=0.5,epsilon=0.25,discount=0.99,
                        get_legal_actions = lambda s: range(n_actions))
 env = gym.make("Taxi-v2")
-
+print(env)
 n_actions = env.action_space.n
-
+print(n_actions)
 
 def play_and_train(env, agent, t_max=10 ** 4):
     """This function should
@@ -47,7 +47,7 @@ def play_and_train(env, agent, t_max=10 ** 4):
 
 rewards = []
 for i in range(5000):
-    rewards.append(play_and_train(env,agent))
+    rewards.append(play_and_train(env, agent))
     if i %1000 ==0:
         clear_output(True)
         print("mean reward",np.mean(rewards[-100:]))

@@ -9,6 +9,7 @@ env = gym.make("CartPole-v0").env  #if you see "<classname> has no attribute .en
 env.reset()
 n_actions = env.action_space.n
 
+
 # create agent
 agent = MLPClassifier(hidden_layer_sizes=(20, 20),
                       activation='tanh',
@@ -18,7 +19,7 @@ agent = MLPClassifier(hidden_layer_sizes=(20, 20),
 
 # initialize agent to the dimension of state an amount of actions
 agent.fit([env.reset()]*n_actions, range(n_actions))
-
+print([env.reset()]*n_actions)
 print(n_actions)
 print(env.reset())
 
